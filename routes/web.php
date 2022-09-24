@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DinasController;
+// use App\Models\Dinas_model;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('welcome');
 });
+
+Route::get('/dashboard', [DinasController::class,'index']);
+Route::get('/create', [DinasController::class,'create']);
+Route::post('/store', [DinasController::class,'store']);
+Route::get('/edit/{id}', [DinasController::class,'edit']);
+Route::put('/edit/{id}', [DinasController::class,'update']);
+Route::delete('/edit/{id}', [DinasController::class,'destroy']);
